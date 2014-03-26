@@ -14,20 +14,19 @@
 			<th width="200px">Structure</th>
 			<th width="200px">Remark</th>
 		</tr>
-		<tr>
-			<td>
-				<script type="text/javascript">
+		<c:forEach items="${molInfoList}" var="list">
+			<tr>
+				<td><script type="text/javascript">
 					mview_begin("/nbbiview/resources/applet/marvin-bin-6.1.6",
 							200, 90);
 					mview_param("rows", "1");
 					mview_param("cols", "1");
 					mview_param("cell0", "|${list.inchi}\n");
 					mview_end();
-				</script>
-			</td>
-			<td> remark
-			</td>
-		</tr>
+				</script></td>
+				<td>${list.standard_inchi }</td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>

@@ -2,18 +2,18 @@ package com.nbbi.nbbiweb.beans;
 
 public class MolInfo {
 
-	private String inchi;
+	private String standard_inchi;
 	
 	public MolInfo() {
 		
 	}
 
 	public String getInchi() {
-		return inchi;
+		return standard_inchi;
 	}
 
-	public void setInchi(String inchi) {
-		this.inchi = inchi;
+	public void setInchi(String standard_inchi) {
+		this.standard_inchi = standard_inchi;
 	}
 	
 	

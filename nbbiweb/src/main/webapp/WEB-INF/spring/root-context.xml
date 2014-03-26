@@ -5,4 +5,32 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName" value="java:comp/env/jdbc/cselsolarDS"/>
+	</bean>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<qualifier value="factory"/>
+		<property name="dataSource" ref="logDataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"/>
+	</bean>
+	
+	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="logDataSource"/>
+    </bean>		
+	
+	<bean id="logDataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+	 <constructor-arg ref="dataSource" />
+	 <property name="logFormatter">
+	  <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+	   <property name="loggingType" value="MULTI_LINE" />
+	   <property name="sqlPrefix" value="SQL:::" />
+	  </bean>
+	 </property>
+	</bean>
+		
 </beans>
