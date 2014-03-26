@@ -5,7 +5,7 @@
 	<select id="getMolInfoList" resultType="MolInfo" parameterType="MolInfo">
 		SELECT
 				standard_inchi
-		FROM compound_structures
-		LIMIT 0,10
+		FROM chembl.compound_structures
+		LIMIT 0,5
 	</select>  
 </mapper>

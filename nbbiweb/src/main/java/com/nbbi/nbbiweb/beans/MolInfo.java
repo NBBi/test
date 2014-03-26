@@ -8,11 +8,11 @@ public class MolInfo {
 		
 	}
 
-	public String getInchi() {
+	public String getStandard_inchi() {
 		return standard_inchi;
 	}
 
-	public void setInchi(String standard_inchi) {
+	public void setStandard_inchi(String standard_inchi) {
 		this.standard_inchi = standard_inchi;
 	}
 	

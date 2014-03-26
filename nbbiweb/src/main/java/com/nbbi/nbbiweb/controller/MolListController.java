@@ -24,7 +24,9 @@ public class MolListController {
 	@RequestMapping(value = "/MolList", method = RequestMethod.GET)
 	public String getMolList(Locale locale, Model model) {
 		MolInfo molInfo = new MolInfo();
-		model.addAttribute("molInfoList", (ArrayList<MolInfo>)molInfoDao.getMolInfoList(molInfo));
+		ArrayList<MolInfo> molList = (ArrayList<MolInfo>)molInfoDao.getMolInfoList(molInfo);
+		model.addAttribute("molInfoList", molList);
+		System.out.println(molList.get(0).getStandard_inchi());
 
 		return "MolList";
 	}

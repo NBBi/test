@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript"
+		SRC="/nbbiweb/resources/applet/marvin-bin-6.1.6/marvin.js"></script>
 </head>
 <body>
 	<table id="molecule list">
@@ -16,15 +18,17 @@
 		</tr>
 		<c:forEach items="${molInfoList}" var="list">
 			<tr>
-				<td><script type="text/javascript">
-					mview_begin("/nbbiview/resources/applet/marvin-bin-6.1.6",
+				<td height="90px">
+				<script type="text/javascript">
+					mview_begin("/nbbiweb/resources/applet/marvin-bin-6.1.6",
 							200, 90);
 					mview_param("rows", "1");
 					mview_param("cols", "1");
-					mview_param("cell0", "|${list.inchi}\n");
+					mview_param("cell0", "|${list.standard_inchi}\n");
 					mview_end();
-				</script></td>
-				<td>${list.standard_inchi }</td>
+				</script>
+				</td>
+				<td>${list.standard_inchi}</td>
 			</tr>
 		</c:forEach>
 	</table>
