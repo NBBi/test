@@ -6,15 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>NBBi</title>
 <script type="text/javascript"
 		SRC="/nbbiweb/resources/applet/marvin-bin-6.1.6/marvin.js"></script>
 </head>
 <body>
-	<table id="molecule list">
+	<table id="molecule list" border="1">
 		<tr align="center">
 			<th width="200px">Structure</th>
-			<th width="200px">Remark</th>
+			<th width="200px">Chembl ID</th>
 		</tr>
 		<c:forEach items="${molInfoList}" var="list">
 			<tr>
@@ -28,7 +28,7 @@
 					mview_end();
 				</script>
 				</td>
-				<td>${list.standard_inchi}</td>
+				<td>${list.chembl_id}</td>
 			</tr>
 		</c:forEach>
 	</table>

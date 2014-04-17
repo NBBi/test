@@ -6,6 +6,20 @@
 		SELECT
 				standard_inchi
 		FROM chembl.compound_structures
-		LIMIT 0,5
+		LIMIT 0,10
 	</select>  
+	
+	<select id="selectExact" resultType="MolInfo" parameterType="MolInfo">
+		SELECT
+				cs.standard_inchi,
+				cs.standard_inchi_key,
+				cs.canonical_smiles,
+				md.chembl_id
+		FROM compound_structures cs join molecule_dictionary md on cs.molregno = md.molregno
+		WHERE
+				<if test="canonical_smiles != null">cs.canonical_smiles = #{canonical_smiles}</if>
+				<if test="chembl_id != null">md.chembl_id = #{chembl_id}</if>
+		LIMIT 0,10
+	</select> 
+	
 </mapper>

@@ -16,4 +16,9 @@ public class MolInfoDaoImpl extends SqlSessionDaoSupport implements MolInfoDao {
 		return getSqlSession().selectList("molInfo.getMolInfoList", molInfo);
 	}
 
+	@Override
+	public List<MolInfo> selectExactMolList(MolInfo molInfo) {
+		return getSqlSession().selectList("molInfo.selectExact", molInfo);
+	}
+
 }
