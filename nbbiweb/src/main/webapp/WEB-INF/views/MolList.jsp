@@ -24,7 +24,7 @@
 							200, 90);
 					mview_param("rows", "1");
 					mview_param("cols", "1");
-					mview_param("cell0", "|${list.standard_inchi}\n");
+					mview_param("cell0", "|${list.canonical_smiles}\n");
 					mview_end();
 				</script>
 				</td>
